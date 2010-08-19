@@ -4,7 +4,7 @@ require 'yaml'
 require 'twitter_oauth'
 
 get "/" do
-  render :index
+  erb :index
 end
 
 get "/connect" do
