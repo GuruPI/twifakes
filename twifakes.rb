@@ -16,10 +16,7 @@ end
 get "/oauth" do
   client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
   access_token = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => params[:oauth_verifier])
-
-  if client.authorized?
-    client.update("Juntos com o Sílvio. É dessa forma que você e eu iniciaremos a renovação do Piauí. Cadastre-se em http://bit.ly/jsilvio")
-  end
+  client.update("I have #{(client.info["followers_count"].to_i/12).to_i} fake followers and you? http://twifake.heroku.com/") if client.authorized?
 end
 
 private
