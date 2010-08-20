@@ -45,6 +45,13 @@ header h1 {
   margin:-18px 0 110px;
   text-shadow:0 2px 2px #000;
 }
+.warning {
+  text-align:left;
+  width:1000px;
+  font-size:2em;
+  line-height:1.4em;
+  margin:0 auto 1em;
+}
 #calculate a {
   background:url("/images/dual-color.gif") repeat-x scroll left center transparent;
   border:1px solid #1D515E;
