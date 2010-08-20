@@ -30,6 +30,8 @@ end
 
 get "/oauth" do
   session[:oauth_verifier] = params[:oauth_verifier]
+  client = TwitterOAuth::Client.new(:consumer_key => ENV["CONSUMER_KEY"], :consumer_secret => ENV["CONSUMER_SECRET"])
+  session[:access_token] = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => session[:oauth_verifier])
   @fakes = (client.info["followers_count"].to_i/12).to_i
   erb :show
 end
