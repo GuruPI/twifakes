@@ -14,7 +14,7 @@ html, body {
 body {
   background:#e5e5e5 url("/images/bg.gif") repeat-x;
   font:88%/1.4em Arial, sans-serif;
-  color:#555;
+  color:#888;
   text-align:center;
 }
 header, section, footer {
@@ -22,7 +22,9 @@ header, section, footer {
 }
 #wrapper {
   background:url("/images/bg-point.jpg") center top no-repeat;
-  height:100%;
+  height:auto !important;
+  margin-bottom:-100px;
+  min-height:100%;
 }
 header {
   height:180px;
@@ -70,4 +72,21 @@ header h1 {
   text-shadow:none;
   height:59px;
   padding:1px 59px 0 61px;
+}
+#stick {
+  height:100px;
+  padding-bottom:1em;
+}
+footer {
+  height:100px;
+  width:900px;
+  margin:0 auto;
+  font-size:0.9em;
+}
+footer a {
+  color:#656565;
+}
+#locale {
+  margin-top:10px;
+  font-size:0.9em;
 }

@@ -2,6 +2,14 @@ require 'rubygems'
 require 'sinatra'
 require 'yaml'
 require 'twitter_oauth'
+require 'sinatra/r18n'
+
+set :default_locale, 'en'
+set :translations,   './locales'
+
+before do
+  session[:locale] = params[:locale] || "en"
+end
 
 get "/" do
   erb :index
