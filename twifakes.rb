@@ -8,7 +8,8 @@ set :default_locale, 'en'
 set :translations,   './locales'
 
 before do
-  session[:locale] = params[:locale] || "en"
+  session[:locale] = params[:locale] unless params[:locale].nil?
+  set :locale, session[:locale]
 end
 
 configure do
@@ -28,10 +29,10 @@ get "/connect" do
 end
 
 get "/oauth" do
-  client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
-  access_token = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => params[:oauth_verifier])
-  @fakes = (client.info["followers_count"].to_i/12).to_i
-  client.update("I have #{(@fakes).to_i} fake followers, and you? http://twifakes.heroku.com/ #Twifakes") if client.authorized?
+  # client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
+  # access_token = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => params[:oauth_verifier])
+  # @fakes = (client.info["followers_count"].to_i/12).to_i
+  # client.update("I have #{(@fakes).to_i} fake followers, and you? http://twifakes.heroku.com/ #Twifakes") if client.authorized?
   erb :show
 end
 
