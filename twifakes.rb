@@ -30,6 +30,7 @@ end
 
 get "/oauth" do
   session[:oauth_verifier] = params[:oauth_verifier]
+  @fakes = (client.info["followers_count"].to_i/12).to_i
   erb :show
 end
 
