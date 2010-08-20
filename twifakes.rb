@@ -37,9 +37,10 @@ get "/oauth" do
 end
 
 get "/tweet" do
+  status = t.message(@fakes)
   client = TwitterOAuth::Client.new(:consumer_key => ENV["CONSUMER_KEY"], :consumer_secret => ENV["CONSUMER_SECRET"])
   session[:access_token] = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => session[:oauth_verifier])
   @fakes = (client.info["followers_count"].to_i/12).to_i
-  client.update("I have #{(@fakes).to_i} fake followers, and you? http://twifakes.heroku.com/ #Twifakes") if client.authorized?
+  client.update(status) if client.authorized?
   redirect "/?s=ok"
 end
