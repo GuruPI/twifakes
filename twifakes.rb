@@ -29,11 +29,16 @@ get "/connect" do
 end
 
 get "/oauth" do
-  # client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
-  # access_token = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => params[:oauth_verifier])
-  # @fakes = (client.info["followers_count"].to_i/12).to_i
-  # client.update("I have #{(@fakes).to_i} fake followers, and you? http://twifakes.heroku.com/ #Twifakes") if client.authorized?
+  session[:oauth_verifier] = params[:oauth_verifier]
   erb :show
+end
+
+get "/tweet" do
+  client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
+  session[:access_token] = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => session[:oauth_verifier])
+  @fakes = (client.info["followers_count"].to_i/12).to_i
+  client.update("I have #{(@fakes).to_i} fake followers, and you? http://twifakes.heroku.com/ #Twifakes") if client.authorized?
+  redirect "/?s=ok"
 end
 
 private
