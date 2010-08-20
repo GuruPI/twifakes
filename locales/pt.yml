@@ -8,7 +8,7 @@ retweet: !!html
   <a href="/tweet">Envie um Tweet</a>
 footer:
   message: !!html
-    Para proteger sua conta o Twifakes usa <a href="http://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth</a> na Autenticação. Você será redirecionado para o Twitter que perguntará se você dar permissão à aplicação Twifakes. Simplesmente clique em "Allow" para usar o Twifakes. Prometemos não fazer uso indevido ou abusar da sua conta.
+    Para proteger sua conta o Twifakes usa <a href="http://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth</a> na Autenticação. Você será redirecionado para o Twitter que perguntará se você dá permissão à aplicação Twifakes. Simplesmente clique em "Allow" para usar o Twifakes. Prometemos não fazer uso indevido ou abusar da sua conta.
   locale: !!html
     Mudar idioma para <a href="?locale=en">Inglês</a>
   credit: !!html
