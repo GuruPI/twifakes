@@ -1,0 +1,11 @@
+# Twifakes #
+
+This application calculates the amount of followers of a person they are fakes. Our algorithm is based on humanity's most sacred document, the Holy Bible.
+
+# How it works: #
+
+In the Holy Bible, Jesus had 12 followers loyal to his cause, but among them was a fake that was the name of this apostle was Judas.
+
+Following this logic, we conclude that every 12 that a person has followers on Twitter, one of them is fake.
+
+Simply calculate the number of followers a person has and divide by 12, this result is the amount of people who are fake.
