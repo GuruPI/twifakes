@@ -1,8 +1,13 @@
 index:
   title: Quantos fakes seguem você?
   button: Calcular
+  followers: Você tem %1 seguidores fake
+  info: !!html
+    Nós não armazenamos seus dados, <a href="/images/heroku.png">nossa conta no Heroku não está utilizando espaço para armazenamento</a>.
+  retweet: !!html
+    <a href="/tweet">Envie um Tweet</a>
   footer:
     message: !!html
       Para proteger sua conta o Twifakes usa <a href="http://en.wikipedia.org/wiki/OAuth" target="_blank">OAuth</a> na Autenticação. Você será redirecionado para o Twitter que perguntará se você dar permissão à aplicação Twifakes. Simplesmente clique em "Allow" para usar o Twifakes. Prometemos não fazer uso indevido ou abusar da sua conta.
     locale: !!html
-      Mudar idioma para <a href="/?locale=en">Inglês</a>
+      Mudar idioma para <a href="?locale=en">Inglês</a>
