@@ -1,7 +1,7 @@
 title: Quantos fakes seguem você?
 button: Calcular
 followers: Você tem %1 seguidores fake
-message: "Eu tenho %1 seguidores fake, e você? http://twifakes.heroku.com/ #Twifakes"
+message: "Eu tenho %1 seguidores fake, e você? http://twifakes.heroku.com/?locale=pt #Twifakes"
 info: !!html
   Nós não armazenamos seus dados, <a href="/images/heroku.png">nossa conta no Heroku não está utilizando espaço para armazenamento</a>.
 retweet: !!html
