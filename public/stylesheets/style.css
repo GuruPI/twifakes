@@ -52,7 +52,16 @@ header h1 {
   line-height:1.4em;
   margin:0 auto 1em;
 }
-#calculate a {
+.info {
+  color:#555;
+  font-size:1.3em;
+  line-height:1.4em;
+  margin-top:2em;
+}
+.info a {
+  color:#333;
+}
+#calculate a, #retweet a {
   background:url("/images/dual-color.gif") repeat-x scroll left center transparent;
   border:1px solid #1D515E;
   color:#E2FAFD;

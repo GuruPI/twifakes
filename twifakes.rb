@@ -8,7 +8,8 @@ set :default_locale, 'en'
 set :translations,   './locales'
 
 before do
-  session[:locale] = params[:locale] || "en"
+  session[:locale] = params[:locale] unless params[:locale].nil?
+  set :locale, session[:locale]
 end
 
 configure do
