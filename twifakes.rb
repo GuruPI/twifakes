@@ -21,7 +21,7 @@ get "/" do
 end
 
 get "/connect" do
-  client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
+  client = TwitterOAuth::Client.new(:consumer_key => ENV["CONSUMER_KEY"], :consumer_secret => ENV["CONSUMER_SECRET"])
   request_token = client.request_token(:oauth_callback => config_file["oauth_callback_url"])
   session[:request_token] = request_token.token
   session[:request_token_secret] = request_token.secret
@@ -34,15 +34,9 @@ get "/oauth" do
 end
 
 get "/tweet" do
-  client = TwitterOAuth::Client.new(:consumer_key => config_file['consumer_key'], :consumer_secret => config_file['consumer_secret'])
+  client = TwitterOAuth::Client.new(:consumer_key => ENV["CONSUMER_KEY"], :consumer_secret => ENV["CONSUMER_SECRET"])
   session[:access_token] = client.authorize(session[:request_token], session[:request_token_secret], :oauth_verifier => session[:oauth_verifier])
   @fakes = (client.info["followers_count"].to_i/12).to_i
   client.update("I have #{(@fakes).to_i} fake followers, and you? http://twifakes.heroku.com/ #Twifakes") if client.authorized?
   redirect "/?s=ok"
 end
-
-private
-  def config_file
-    YAML.load_file("config/twitter.yml")
-  end
-
